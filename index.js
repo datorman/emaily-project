@@ -5,6 +5,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys')
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 
@@ -24,6 +25,7 @@ app.use(passport.session());
 //Call export function and pass app
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 // Serve client assets on production when route unrecognized.
 if(process.env.NODE_ENV==='production'){
